@@ -1,12 +1,14 @@
-const express = require('express');
-const React = require('react');
-const renderToString = require('react-dom/server').renderToString
-const App = require('../src/client/app/App').default
+import express from "express";
+import React from "react";
+import { renderToString } from "react-dom/server";
+import App from './client/app/App';
+import Input from "./client/components/Input";
 
 const app = express();
 
 app.get('/', (req, res) => {
-
+ const content = renderToString(<App/>);
+ res.send(content);
 })
 
 
