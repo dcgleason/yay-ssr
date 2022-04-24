@@ -13,7 +13,7 @@ const Input = () => {
 
     const fetchData = async () => {
       // get the data from the api
-      const response = await fetch('http://localhost:3001/unique');
+      const response = await fetch('https://youandyours.herokuapp.com/unique');
       const json = await response.json();
       const data = JSON.stringify(json)   
       const array = data.split(',');
@@ -79,7 +79,7 @@ const submitRequest = async (e) => {
   var resultsArray = [];
   var snippets = [];
   const dbPost = async () => {
-    const responseEmail =  await fetch("http://localhost:3001/bundle", { 
+    const responseEmail =  await fetch("https://youandyours.herokuapp.com/bundle", { 
         method: 'POST', 
         headers: { 
           'Content-type': 'application/json'
@@ -106,7 +106,7 @@ const submitRequest = async (e) => {
             if(emails[j]){
               (async function(i, j){
               console.log('this should be sent twice very quickly, every 1 minute')
-              const response =  await fetch("http://localhost:3001/email", { 
+              const response =  await fetch("https://youandyours.herokuapp.com/email", { 
                 method: 'POST', 
                 headers: { 
                   'Content-type': 'application/json'
@@ -137,7 +137,7 @@ const submitRequest = async (e) => {
       console.log('after second await timoeout -- ideally 24 hours after the emails all send')
 
       // get the message ids for a particular unique ID
-      const resp =  await fetch("http://localhost:3001/messages", { 
+      const resp =  await fetch("https://youandyours.herokuapp.com/messages", { 
         method: 'POST', 
         headers: { 
           'Content-type': 'application/json'
@@ -168,7 +168,7 @@ const submitRequest = async (e) => {
     console.log('resultsArray[1] typeof' + typeof resultsArray[1]);
 
     for (var m =0; m<resultsArray.length; m++ ){
-        const r =  await fetch("http://localhost:3001/message", { 
+        const r =  await fetch("https://youandyours.herokuapp.com/message", { 
         method: 'POST', 
         headers: { 
           'Content-type': 'application/json'
