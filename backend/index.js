@@ -51,6 +51,7 @@ app.use(function (req, res, next) {
 
 app.post('/message', async (req,res) =>{
 
+res.send('messsage');
 var id = req.body.message_id;
 
 axios
@@ -72,6 +73,8 @@ axios
 )
 
 app.post('/messages', async (req,res) =>{
+
+  res.send('messsages');
 
   var unique_id = req.body.unique;
 
@@ -106,6 +109,7 @@ app.get("/api", (req, res) => {
   })
 
 app.post('/email', (req, res) => {
+  res.send('email');
 
   var name = req.body.name
   var email = req.body.email
@@ -157,6 +161,7 @@ app.post('/email', (req, res) => {
 })
 
 app.post('/bundle', (req, res) => {
+  res.send('bundle');
   var name = req.body.name
   var unique_id = req.body.unique_id
   const objCreate = {
