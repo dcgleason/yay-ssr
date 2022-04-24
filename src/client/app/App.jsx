@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import {Footer, Header, Main, Input} from "./components/index"
+import {Footer, Header, Main, Input} from "../components/index"
 
 import React from 'react';
 import './index.css'
