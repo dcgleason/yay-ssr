@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 const { resolve } = require('path')
+import viteSSR from 'vite-ssr/plugin.js'
 
 // https://vitejs.dev/config/
 // export default defineConfig({
@@ -10,12 +11,14 @@ const { resolve } = require('path')
 
 
 module.exports = defineConfig({
-  plugins: [react()],
-  proxy: {
-    '/api': 'http://localhost:3001/api',
-    '/message': 'http://localhost:3001/message',
-    '/messages': 'http://localhost:3001/messages',
-    '/bundle': 'http://localhost:3001/bundle'
+  plugins: [
+    react(),
+    viteSSR(),
+  ],
+  server: {
+    watch: {
+      ignored: ['!**/node_modules/your-package-name/**']
+    }
   }
 
 })
